@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title color="normaltext">
+      Restaurant App
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-card>
+    <ion-title align="center" padding>
+      Restaurant Name
+    </ion-title>
+    <img src="http://i.ngenespanol.com/dam/traveler/agenda/17/03/14/imagen.jpg.imgw.1280.1280.jpeg" alt="">
+    <p padding align="center">Rating: 5 Estrellas</p>
+  </ion-card>
+
+  <ion-fab right bottom>
+    <button ion-fab 
+      [navPush]="addRestaurant"
+      color="primary">
+        <ion-icon name="add"></ion-icon>
+    </button>
+  </ion-fab>
+
+</ion-content>
+ 

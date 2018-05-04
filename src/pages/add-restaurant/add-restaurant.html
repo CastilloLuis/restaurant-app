@@ -1,0 +1,48 @@
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title color="normaltext">Add a restaurant</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+
+  <ion-row>
+    <ion-col col-9>
+      <ion-item>
+        <ion-input type="text" placeholder="Restaurant name..."></ion-input>
+      </ion-item>
+    </ion-col>
+    <ion-col>
+      <ion-row>
+        <button ion-button padding full>
+          <ion-icon name="camera" (click)="takePicture()"></ion-icon>
+        </button>
+      </ion-row>
+      <ion-row>
+        <button ion-button padding full (click)="locateRestaurant()">
+          <ion-icon name="locate"></ion-icon>
+        </button>
+      </ion-row>
+    </ion-col>
+  </ion-row>
+
+  <button ion-button full>ADD RESTAURANT</button>
+
+    <ion-row *ngIf="locationList">
+      <ion-col>
+          <agm-map 
+            style="height: 250px;"
+            [latitude] = "location.lat";
+            [longitude] = "location.long";
+            [zoom] = "4">
+            <agm-marker [latitude]="location.lat" [longitude]="location.long"></agm-marker>
+          </agm-map>
+      </ion-col>
+      <ion-col>
+
+      </ion-col>
+    </ion-row>
+
+</ion-content>
