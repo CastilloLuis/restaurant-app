@@ -27,22 +27,29 @@
       </ion-row>
     </ion-col>
   </ion-row>
-
+  
+  <ion-row>
+    <rating name="myrating"></rating>
+  </ion-row>
+  
   <button ion-button full>ADD RESTAURANT</button>
 
     <ion-row *ngIf="locationList">
       <ion-col>
           <agm-map 
-            style="height: 250px;"
-            [latitude] = "location.lat";
-            [longitude] = "location.long";
+            [latitude] = "location.lat"
+            [longitude] = "location.long"
             [zoom] = "4">
             <agm-marker [latitude]="location.lat" [longitude]="location.long"></agm-marker>
           </agm-map>
       </ion-col>
-      <ion-col>
-
-      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-slides>
+        <ion-slide *ngFor="let images of restimages">
+          <img [src]="images">
+        </ion-slide>
+      </ion-slides>
     </ion-row>
 
 </ion-content>
