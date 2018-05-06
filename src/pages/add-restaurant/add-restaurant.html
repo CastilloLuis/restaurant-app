@@ -8,48 +8,47 @@
 
 <ion-content padding>
 
+  <!--<form #myform="ngForm" (ngSubmit)="addRestaurant(myform)">-->
   <ion-row>
     <ion-col col-9>
       <ion-item>
-        <ion-input type="text" placeholder="Restaurant name..."></ion-input>
+        <ion-input type="text" placeholder="Restaurant name..." [(ngModel)]="name" required></ion-input>
       </ion-item>
     </ion-col>
     <ion-col>
       <ion-row>
-        <button ion-button padding full>
-          <ion-icon name="camera" (click)="takePicture()"></ion-icon>
+        <button ion-button padding full type="button" (click)="takePicture()">
+          <ion-icon name="camera"></ion-icon>
         </button>
       </ion-row>
       <ion-row>
-        <button ion-button padding full (click)="locateRestaurant()">
+        <button ion-button padding full type="button" (click)="locateRestaurant()">
           <ion-icon name="locate"></ion-icon>
         </button>
       </ion-row>
     </ion-col>
   </ion-row>
-  
-  <ion-row>
-    <rating name="myrating"></rating>
-  </ion-row>
-  
-  <button ion-button full>ADD RESTAURANT</button>
 
-    <ion-row *ngIf="locationList">
-      <ion-col>
-          <agm-map 
-            [latitude] = "location.lat"
-            [longitude] = "location.long"
-            [zoom] = "4">
-            <agm-marker [latitude]="location.lat" [longitude]="location.long"></agm-marker>
-          </agm-map>
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-slides>
-        <ion-slide *ngFor="let images of restimages">
-          <img [src]="images">
-        </ion-slide>
-      </ion-slides>
-    </ion-row>
+  <ion-row>
+    <rating name="myrating" [(ngModel)]="rating"></rating>
+  </ion-row>
+
+  <button ion-button (click)="addRestaurant()" full>ADD RESTAURANT</button>
+
+  <ion-row *ngIf="locationList">
+    <ion-col>
+      <agm-map [latitude]="location.lat" [longitude]="location.long" [zoom]="4">
+        <agm-marker [latitude]="location.lat" [longitude]="location.long"></agm-marker>
+      </agm-map>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-slides>
+      <ion-slide *ngFor="let images of restimages">
+        <img [src]="images">
+      </ion-slide>
+    </ion-slides>
+  </ion-row>
 
 </ion-content>
+

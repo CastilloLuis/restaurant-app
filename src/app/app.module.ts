@@ -15,6 +15,7 @@ import { AgmCoreModule } from '@agm/core';
 
 // Import ionic2-rating module
 import { Ionic2RatingModule } from 'ionic2-rating';
+import { RestaurantService } from '../services/restaurant.service';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { Ionic2RatingModule } from 'ionic2-rating';
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    RestaurantService
   ]
 })
 export class AppModule {}

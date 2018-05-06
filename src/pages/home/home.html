@@ -8,21 +8,22 @@
 
 <ion-content padding>
 
-  <ion-card>
-    <ion-title align="center" padding>
-      Restaurant Name
-    </ion-title>
-    <img src="http://i.ngenespanol.com/dam/traveler/agenda/17/03/14/imagen.jpg.imgw.1280.1280.jpeg" alt="">
-    <p padding align="center">Rating: 5 Estrellas</p>
+  <p *ngIf="!isload">{{ message }}</p>
+
+  <ion-card *ngFor="let rest of restaurants">
+    <img [src]="rest['images']" style="height: 250px;">
+    <ion-card-content>
+      <ion-title align="center" padding>
+        {{ rest['name'] }}
+      </ion-title>
+      <h1 padding align="center"><span style="color: gold">Stars</span>: <span style="font-weight: bold;">{{ rest['rating'] }}</span> of <span style="font-weight: bold;">5</span></h1>
+    </ion-card-content>
   </ion-card>
 
   <ion-fab right bottom>
-    <button ion-fab 
-      [navPush]="addRestaurant"
-      color="primary">
-        <ion-icon name="add"></ion-icon>
+    <button ion-fab [navPush]="addRestaurant" color="primary">
+      <ion-icon name="add"></ion-icon>
     </button>
   </ion-fab>
 
 </ion-content>
- 

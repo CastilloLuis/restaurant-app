@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
 import { Geolocation } from '@ionic-native/geolocation';
 import { Camera } from '@ionic-native/camera';
+import { RestaurantService } from '../../services/restaurant.service';
 
 @IonicPage()
 @Component({
@@ -22,6 +23,10 @@ export class AddRestaurantPage {
 
   restimages = [];
 
+  // FORM VARS
+  name: string;
+  rating: number;
+
   // CAMERA OPTIONS
   options = {
     quality: 100,
@@ -31,7 +36,7 @@ export class AddRestaurantPage {
   }
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public geolocation: Geolocation,
-              public toast: ToastController, public camera: Camera) {
+              public toast: ToastController, public camera: Camera, public restService: RestaurantService) {
   } 
 
   locateRestaurant() {
@@ -49,7 +54,7 @@ export class AddRestaurantPage {
           duration: 2000
         });
         toast.present(); 
-      })
+      });
   }
 
   takePicture() {
@@ -63,6 +68,16 @@ export class AddRestaurantPage {
       .catch( (err) => {
         console.log('error: '+err);
       })
+  }
+
+  addRestaurant() {
+    //alert(this.name+"-"+this.restimages[0]+"-"+this.rating+"-"+this.location);
+    if(this.name==='' || this.rating===undefined){
+      alert('Please fill all the fields...');
+    }else{
+      this.restService.addRestaurant(this.name, this.restimages, this.rating, this.location);
+      setTimeout(()=>alert('Restaurant added successfully!'),2000);
+    }
   }
 
 } // FINAL
