@@ -11,7 +11,7 @@
   <p *ngIf="!isload">{{ message }}</p>
 
   <ion-card *ngFor="let rest of restaurants">
-    <img [src]="rest['images']" style="height: 250px;">
+    <img [src]="rest['images']" style="height: 250px;" (click)="showRestaurant(rest)">
     <ion-card-content>
       <ion-title align="center" padding>
         {{ rest['name'] }}

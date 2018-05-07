@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ToastController, LoadingController, ViewController } from 'ionic-angular';
 import { Geolocation } from '@ionic-native/geolocation';
 import { Camera } from '@ionic-native/camera';
 import { RestaurantService } from '../../services/restaurant.service';
@@ -36,7 +36,8 @@ export class AddRestaurantPage {
   }
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public geolocation: Geolocation,
-              public toast: ToastController, public camera: Camera, public restService: RestaurantService) {
+              public toast: ToastController, public camera: Camera, public restService: RestaurantService,
+              public loadingCtrl: LoadingController, public viewCtrl: ViewController) {
   } 
 
   locateRestaurant() {
@@ -50,7 +51,7 @@ export class AddRestaurantPage {
       .catch( (err) => {
         console.log(err.message)
         let toast = this.toast.create({
-          message: 'Can not get the position...'+err,
+          message: 'Can not get the position...'+err.message,
           duration: 2000
         });
         toast.present(); 
@@ -76,8 +77,20 @@ export class AddRestaurantPage {
       alert('Please fill all the fields...');
     }else{
       this.restService.addRestaurant(this.name, this.restimages, this.rating, this.location);
-      setTimeout(()=>alert('Restaurant added successfully!'),2000);
+      let loader = this.loadingCtrl.create({content: 'Adding restaurant...', duration: 2000});
+      loader.onDidDismiss(() => this.showMessage());
+      loader.present();
     }
+  }
+
+  showMessage(){
+    let mytoast = this.toast.create({
+      message: 'Restaurant added successfully!',
+      duration: 3000,
+      cssClass: 'addedToast'
+    });
+    mytoast.onDidDismiss( () => this.viewCtrl.dismiss());
+    mytoast.present();
   }
 
 } // FINAL

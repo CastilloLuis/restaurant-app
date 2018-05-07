@@ -1,13 +1,19 @@
 page-add-restaurant {
-
-    rating{
-        font-size: 2.5em;
-        color: gold;
-        margin-bottom: 20px;
-    }
-
-    rating ul{
-        padding-left: 0px;
-        margin: 0px;
-    }
+  rating {
+    font-size: 2.5em;
+    color: gold;
+    margin-bottom: 20px;
+  }
+  rating ul {
+    padding-left: 0px;
+    margin: 0px;
+  }
 }
+
+.addedToast {
+  >div {
+    background-color: rgb(55, 216, 55) !important;
+    color: white;
+  }
+}
+
