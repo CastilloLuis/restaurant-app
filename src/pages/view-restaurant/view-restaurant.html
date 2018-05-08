@@ -1,7 +1,17 @@
 <ion-header>
 
   <ion-navbar color="primary">
+    <ion-buttons left>
+      <button ion-button clear (click)="close()">
+        <ion-icon name="close" style="font-size: 25px;"></ion-icon>
+      </button>
+    </ion-buttons>
     <ion-title color="normaltext">{{ restName }}</ion-title>
+    <ion-buttons right>
+      <button ion-button clear (click)="shareModal()">
+          <ion-icon name="md-share" right style="font-size: 22px;"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 
 </ion-header>

@@ -70,7 +70,7 @@ export class AddRestaurantPage {
         console.log('error: '+err);
       })
   }
-
+ 
   addRestaurant() {
     //alert(this.name+"-"+this.restimages[0]+"-"+this.rating+"-"+this.location);
     if(this.name==='' || this.rating===undefined){
