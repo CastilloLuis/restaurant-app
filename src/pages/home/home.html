@@ -1,5 +1,10 @@
 <ion-header>
   <ion-navbar color="primary">
+    <ion-buttons left>
+      <button ion-button clear menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
     <ion-title color="normaltext">
       Restaurant App
     </ion-title>
@@ -9,7 +14,6 @@
 <ion-content padding>
 
   <p *ngIf="!isload">{{ message }}</p>
-
   <ion-card *ngFor="let rest of restaurants">
     <img [src]="rest['images']" style="height: 250px;" (click)="showRestaurant(rest)">
     <ion-card-content>

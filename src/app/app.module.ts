@@ -9,6 +9,9 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { AddRestaurantPage } from '../pages/add-restaurant/add-restaurant';
 import { ViewRestaurantPage } from '../pages/view-restaurant/view-restaurant';
+import { LoginPage } from '../pages/login/login';
+import { RegisterPage } from '../pages/register/register';
+import { WelcomePage } from '../pages/welcome/welcome';
 
 // GOOGLE MAPS
 import { AgmCoreModule } from '@agm/core';
@@ -22,7 +25,10 @@ import { RestaurantService } from '../services/restaurant.service';
     MyApp,
     HomePage,
     AddRestaurantPage,
-    ViewRestaurantPage
+    ViewRestaurantPage,
+    LoginPage,
+    RegisterPage,
+    WelcomePage
   ],
   imports: [
     BrowserModule,
@@ -37,8 +43,10 @@ import { RestaurantService } from '../services/restaurant.service';
     MyApp,
     HomePage,
     AddRestaurantPage,
-    ViewRestaurantPage
-
+    ViewRestaurantPage,
+    LoginPage,
+    RegisterPage,
+    WelcomePage
   ],
   providers: [
     StatusBar,

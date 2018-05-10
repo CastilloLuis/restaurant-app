@@ -1,0 +1,60 @@
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-buttons left>
+      <button ion-button clear (click)="close()">
+        <ion-icon name="close" style="font-size: 25px;"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title color="normaltext">REGISTER</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <div text-center style="margin-top: 5%;">
+    <h1>REGISTER
+      <ion-icon name="create"></ion-icon>
+    </h1>
+  </div>
+
+  <div id="register-form">
+    <ion-list>
+
+      <ion-item>
+        <ion-label>Full Name</ion-label>
+        <ion-input type="text"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>E-mail</ion-label>
+        <ion-input type="email"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Username</ion-label>
+        <ion-input type="text"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Password</ion-label>
+        <ion-input type="password"></ion-input>
+      </ion-item>
+
+    </ion-list>
+  </div>
+
+  <br/>
+
+  <button ion-button color="danger" full>REGISTER</button>
+
+
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar text-center>
+    <ion-title>Luis Castillo</ion-title>
+  </ion-toolbar>
+</ion-footer>

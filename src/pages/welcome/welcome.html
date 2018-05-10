@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-buttons left>
+      <button ion-button clear menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title color="normaltext">
+      HOME PAGE
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding class="ioncontent">
+
+  <h1 text-center style="margin-top: 12%;">RESTAURANT APP</h1>
+
+  <div text-center id="welcome-icon">
+    <img src="../../assets/welcome-icon.png" width="50%">
+  </div>
+
+  <div style="margin-top: 80%;">
+    <ion-row>
+      <button ion-button color="primary" full (click)="login()">Log in</button>
+    </ion-row>
+    <br/>
+    <ion-row>
+      <button ion-button color="danger" full (click)="register()">Register</button>
+    </ion-row>
+  </div>
+
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar text-center>
+    <ion-title>Luis Castillo</ion-title>
+  </ion-toolbar>
+</ion-footer>
