@@ -30,7 +30,7 @@
 
       <ion-item>
         <ion-label>E-mail</ion-label>
-        <ion-input type="email"></ion-input>
+        <ion-input type="email" [(ngModel)]="useremail"></ion-input>
       </ion-item>
 
       <ion-item>
@@ -40,7 +40,7 @@
 
       <ion-item>
         <ion-label>Password</ion-label>
-        <ion-input type="password"></ion-input>
+        <ion-input type="password" [(ngModel)]="userpassword"></ion-input>
       </ion-item>
 
     </ion-list>
@@ -48,7 +48,7 @@
 
   <br/>
 
-  <button ion-button color="danger" full>REGISTER</button>
+  <button ion-button color="danger" full (click)="userRegister()">REGISTER</button>
 
 
 </ion-content>

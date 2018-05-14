@@ -6,13 +6,13 @@
   </ion-header>
   <ion-content>
     <ion-list>
-      <button ion-item full clear (click)="goTo(rootPage)">
+      <button ion-item full clear (click)="goTo(rootPage)" *ngIf="!userConnected">
         HOME <ion-icon name="home" item-right></ion-icon>
       </button>
-      <button ion-item full clear (click)="goTo(homepage)">
+      <button ion-item full clear (click)="goTo(homepage)" *ngIf="userConnected">
         RESTAURANT <ion-icon name="restaurant" item-right></ion-icon>
       </button>
-      <button ion-item full clear color="danger">
+      <button ion-item full clear (click)="logout()" color="danger" *ngIf="userConnected">
         LOG OUT <ion-icon name="exit" item-right></ion-icon>
       </button>
     </ion-list>
